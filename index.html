@@ -3,197 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faculty Login - Attendance Portal</title>
+    <title>Academic Attendance Portal - Mohammed Bin Ghanim Academy</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            background-color: #f0f2f5; 
+            background-image: linear-gradient(135deg, #e0e6ed 0%, #f0f2f5 100%);
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
         }
-
-        body {
-            background-color: #b0d4de;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
+        .login-card { 
+            background: white; 
+            padding: 2.5rem; 
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
+            width: 100%; 
+            max-width: 400px; 
+            text-align: center; 
+            border-top: 5px solid #1a478a; /* Royal Blue top border */
+            border-bottom: 5px solid #bfa15c; /* Gold bottom border */
         }
-
-        .login-card {
-            background-color: #f7f9fa;
-            width: 100%;
-            max-width: 450px;
-            padding: 45px 35px;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(11, 37, 69, 0.1);
-            text-align: center;
-            position: relative;
-            border: 1px solid rgba(0, 0, 0, 0.02);
+        .academy-logo {
+            width: 160px;
+            height: auto;
+            margin-bottom: 1.5rem;
         }
-
-        .header-container {
-            margin-bottom: 35px;
+        h2 { 
+            color: #1a478a; 
+            margin-bottom: 10px;
+            font-size: 1.5rem;
         }
-
-        .title-large {
-            font-size: 34px;
-            font-weight: 800;
-            color: #0b2545;
-            text-transform: uppercase;
-            margin-bottom: 6px;
-            letter-spacing: 0.8px;
+        p.subtitle {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
         }
-
-        .title-medium {
-            font-size: 22px;
-            font-weight: 700;
-            color: #134074;
-            margin-bottom: 6px;
-        }
-
-        .title-small {
-            font-size: 15px;
-            font-weight: 600;
-            color: #5c677d;
-            letter-spacing: 0.5px;
-        }
-
-        .logo-wrap {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-
-        .logo-wrap img {
-            width: 110px;
-            height: 110px;
-            object-fit: contain;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.06));
-        }
-
-        .form-group {
+        .input-group {
             text-align: left;
-            margin-bottom: 24px;
+            margin-bottom: 1.2rem;
         }
-
-        .form-label {
+        label {
             display: block;
-            font-size: 13px;
-            font-weight: 800;
-            color: #0b2545;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            letter-spacing: 0.6px;
+            margin-bottom: 0.5rem;
+            color: #1a478a;
+            font-weight: 600;
+            font-size: 0.9rem;
         }
-
-        .input-wrapper {
-            position: relative;
+        input { 
+            width: 100%; 
+            padding: 12px 15px; 
+            border: 1px solid #ccc; 
+            border-radius: 8px; 
+            font-size: 16px; 
+            box-sizing: border-box;
+            transition: all 0.3s;
         }
-
-        .form-input {
-            width: 100%;
-            padding: 15px 16px;
-            font-size: 15px;
-            border: 1px solid #ccd7e0;
-            border-radius: 12px;
-            background-color: #ffffff;
-            color: #0b2545;
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus {
+        input:focus {
+            border-color: #bfa15c;
             outline: none;
-            border-color: #0b2545;
-            box-shadow: 0 0 0 4px rgba(11, 37, 69, 0.1);
+            box-shadow: 0 0 5px rgba(191, 161, 92, 0.3);
         }
-
-        .form-input::placeholder {
-            color: #a0aec0;
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 16px;
-            font-size: 16px;
-            font-weight: 700;
-            color: #ffffff;
-            background-color: #0b2545;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
+        button { 
+            width: 100%; 
+            padding: 14px; 
+            background-color: #1a478a; 
+            color: white; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-size: 16px; 
+            font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.2s ease;
+            letter-spacing: 1px;
+            transition: background 0.3s; 
             margin-top: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(11, 37, 69, 0.15);
         }
-
-        .btn-submit:hover {
-            background-color: #134074;
-            transform: translateY(-1px);
-            box-shadow: 0 6px 15px rgba(11, 37, 69, 0.2);
+        button:hover { 
+            background-color: #143566; 
         }
-
-        .btn-submit:active {
-            transform: translateY(0);
+        #error-msg { 
+            color: #d9534f; 
+            margin-top: 15px; 
+            display: none; 
+            font-size: 0.85rem;
+            font-weight: bold;
         }
-
         .footer-text {
-            font-size: 12px;
-            color: #8da2bb;
-            letter-spacing: 0.3px;
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: #aaa;
         }
     </style>
 </head>
 <body>
 
-    <div class="login-card">
-        <div class="header-container">
-            <h1 class="title-large">FACULTY LOGIN</h1>
-            <h2 class="title-medium">Attendance Portal</h2>
-            <h3 class="title-small">Academic Year 2026</h3>
-        </div>
-
-        <div class="logo-wrap">
-            <img src="logo.png" alt="Academy Logo">
-        </div>
-
-        <form id="loginForm">
-            <div class="form-group">
-                <label class="form-label" for="username">USERNAME</label>
-                <div class="input-wrapper">
-                    <input class="form-input" type="text" id="username" placeholder="Enter your username" required autocomplete="off">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="form-label" for="verification-code">VERIFICATION CODE</label>
-                <div class="input-wrapper">
-                    <input class="form-input" type="password" id="verification-code" placeholder="Enter access code" required>
-                </div>
-            </div>
-
-            <button type="submit" class="btn-submit">SIGN IN</button>
-        </form>
-
-        <div class="footer-text">
-            &copy; 2026 MBGA. All Rights Reserved.
-        </div>
+<div class="login-card">
+    <img src="logo.png" alt="MBGMA Academy Logo" class="academy-logo">
+    
+    <h2>Attendance Portal</h2>
+    <p class="subtitle">Academic Year 2026 - Faculty Login</p>
+    
+    <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username">
     </div>
+    
+    <div class="input-group">
+        <label for="password">Verification Code</label>
+        <input type="password" id="password" placeholder="Enter access code">
+    </div>
+    
+    <button onclick="checkLogin()">Sign In</button>
+    <p id="error-msg">Invalid credentials. Please try again.</p>
+    
+    <p class="footer-text">© 2026 MBGA. All Rights Reserved.</p>
+</div>
 
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const username = document.getElementById('username').value;
-            const code = document.getElementById('verification-code').value;
-
+<script>
+    function checkLogin() {
+        const user = document.getElementById('username').value;
+        const pass = document.getElementById('password').value;
+        const errorMsg = document.getElementById('error-msg');
+        
+        // Credentials check
+        if (user === "MBGASTAFF" && pass === "MBGA2026") {
+            // REPLACE the link below with your actual Microsoft Forms link
             window.location.href = "https://forms.cloud.microsoft/r/ULvNLjCRE4";
-        });
-    </script>
+        } else {
+            errorMsg.style.display = 'block';
+            // Auto-hide error after 4 seconds
+            setTimeout(() => {
+                errorMsg.style.display = 'none';
+            }, 4000);
+        }
+    }
+</script>
 
 </body>
 </html>
