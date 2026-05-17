@@ -7,51 +7,71 @@
     <style>
         body { 
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-            background-color: #f0f2f5; 
-            background-image: linear-gradient(135deg, #e0e6ed 0%, #f0f2f5 100%);
+            background-image: linear-gradient(rgba(11, 37, 69, 0.4), rgba(11, 37, 69, 0.4)), url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             display: flex; 
             justify-content: center; 
             align-items: center; 
             height: 100vh; 
             margin: 0; 
         }
+        
         .login-card { 
-            background: white; 
+            background: rgba(255, 255, 255, 0.92); 
+            backdrop-filter: blur(8px);
             padding: 2.5rem; 
             border-radius: 20px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
+            box-shadow: 0 20px 45px rgba(0,0,0,0.25); 
             width: 100%; 
             max-width: 400px; 
             text-align: center; 
-            border-top: 5px solid #1a478a; /* Royal Blue top border */
-            border-bottom: 5px solid #bfa15c; /* Gold bottom border */
+            border-top: 5px solid #1a478a; 
+            border-bottom: 5px solid #bfa15c; 
         }
+
         .academy-logo {
             width: 160px;
             height: auto;
             margin-bottom: 1.5rem;
         }
-        h2 { 
-            color: #1a478a; 
-            margin-bottom: 10px;
-            font-size: 1.5rem;
+
+        h1.main-title {
+            color: #1a478a;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 5px;
         }
-        p.subtitle {
-            color: #666;
+        h2.sub-title {
+            color: #143566;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        p.academic-year {
+            color: #555;
+            font-size: 1rem;
             margin-bottom: 2rem;
-            font-size: 0.95rem;
+            font-weight: 500;
         }
+
         .input-group {
             text-align: left;
             margin-bottom: 1.2rem;
         }
+
         label {
             display: block;
             margin-bottom: 0.5rem;
             color: #1a478a;
-            font-weight: 600;
+            font-weight: 850; 
             font-size: 0.9rem;
+            text-transform: uppercase;
         }
+
         input { 
             width: 100%; 
             padding: 12px 15px; 
@@ -59,13 +79,19 @@
             border-radius: 8px; 
             font-size: 16px; 
             box-sizing: border-box;
+            background-color: #f8fafc;
+            color: #1a478a;
+            font-weight: 600;
             transition: all 0.3s;
         }
+
         input:focus {
             border-color: #bfa15c;
             outline: none;
-            box-shadow: 0 0 5px rgba(191, 161, 92, 0.3);
+            background-color: #ffffff;
+            box-shadow: 0 0 5px rgba(191, 161, 92, 0.4);
         }
+
         button { 
             width: 100%; 
             padding: 14px; 
@@ -80,10 +106,13 @@
             letter-spacing: 1px;
             transition: background 0.3s; 
             margin-top: 10px;
+            box-shadow: 0 4px 12px rgba(26, 71, 138, 0.2);
         }
+
         button:hover { 
             background-color: #143566; 
         }
+
         #error-msg { 
             color: #d9534f; 
             margin-top: 15px; 
@@ -91,10 +120,12 @@
             font-size: 0.85rem;
             font-weight: bold;
         }
+
         .footer-text {
             margin-top: 2rem;
             font-size: 0.8rem;
-            color: #aaa;
+            color: #666;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -103,23 +134,24 @@
 <div class="login-card">
     <img src="logo.png" alt="MBGMA Academy Logo" class="academy-logo">
     
-    <h2>Faculty Login</h2>
-    <p class="subtitle"><b>Attendance Portal</b></p>
+    <h1 class="main-title">Faculty Login</h1>
+    <h2 class="sub-title">Attendance Portal</h2>
+    <p class="academic-year">Academic Year 2026</p>
     
     <div class="input-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" placeholder="Enter your username">
+        <label for="username">USERNAME</label>
+        <input type="text" id="username" placeholder="Enter your username" autocomplete="off">
     </div>
     
     <div class="input-group">
-        <label for="password">Verification Code</label>
+        <label for="password">VERIFICATION CODE</label>
         <input type="password" id="password" placeholder="Enter access code">
     </div>
     
     <button onclick="checkLogin()">Sign In</button>
     <p id="error-msg">Invalid credentials. Please try again.</p>
     
-    <p class="footer-text">© 2026 MBGA. All Rights Reserved.</p>
+    <p class="footer-text">&copy; 2026 MBGA. All Rights Reserved.</p>
 </div>
 
 <script>
@@ -128,13 +160,10 @@
         const pass = document.getElementById('password').value;
         const errorMsg = document.getElementById('error-msg');
         
-        // Credentials check
         if (user === "MBGASTAFF" && pass === "MBGA2026") {
-            // REPLACE the link below with your actual Microsoft Forms link
             window.location.href = "https://forms.cloud.microsoft/r/ULvNLjCRE4";
         } else {
             errorMsg.style.display = 'block';
-            // Auto-hide error after 4 seconds
             setTimeout(() => {
                 errorMsg.style.display = 'none';
             }, 4000);
