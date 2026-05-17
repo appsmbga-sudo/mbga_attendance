@@ -31,28 +31,16 @@
             height: auto;
             margin-bottom: 1.5rem;
         }
-        
-        /* Typography Styling */
-        h1.main-title {
-            color: #1a478a;
-            font-size: 1.8rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 5px;
+        h2 { 
+            color: #1a478a; 
+            margin-bottom: 10px;
+            font-size: 1.5rem;
         }
-        h2.sub-title {
-            color: #143566;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        p.academic-year {
+        p.subtitle {
             color: #666;
-            font-size: 1rem;
             margin-bottom: 2rem;
-            font-weight: 500;
+            font-size: 0.95rem;
         }
-
         .input-group {
             text-align: left;
             margin-bottom: 1.2rem;
@@ -115,24 +103,23 @@
 <div class="login-card">
     <img src="logo.png" alt="MBGMA Academy Logo" class="academy-logo">
     
-    <h1 class="main-title">Faculty Login</h1>
-    <h2 class="sub-title">Attendance Portal</h2>
-    <p class="academic-year">Academic Year 2026</p>
+    <h2>Faculty Login</h2>
+    <p class="subtitle"><b>Attendance Portal</b></p>
     
     <div class="input-group">
-        <label for="username">USERNAME</label>
+        <label for="username"><b>USERNAME</b></label>
         <input type="text" id="username" placeholder="Enter your username">
     </div>
     
     <div class="input-group">
-        <label for="password">VERIFICATION CODE</label>
+        <label for="password"><b>VERIFICATION CODE</b></label>
         <input type="password" id="password" placeholder="Enter access code">
     </div>
     
     <button onclick="checkLogin()">Sign In</button>
     <p id="error-msg">Invalid credentials. Please try again.</p>
     
-    <p class="footer-text">©️ 2026 MBGA. All Rights Reserved.</p>
+    <p class="footer-text">© 2026 MBGA. All Rights Reserved.</p>
 </div>
 
 <script>
@@ -143,9 +130,11 @@
         
         // Credentials check
         if (user === "MBGASTAFF" && pass === "MBGA2026") {
+            // REPLACE the link below with your actual Microsoft Forms link
             window.location.href = "https://forms.cloud.microsoft/r/ULvNLjCRE4";
         } else {
             errorMsg.style.display = 'block';
+            // Auto-hide error after 4 seconds
             setTimeout(() => {
                 errorMsg.style.display = 'none';
             }, 4000);
